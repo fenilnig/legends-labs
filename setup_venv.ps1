@@ -1,5 +1,7 @@
 $ErrorActionPreference = "Stop"
-$venv = "H:\legends-labs\venv_ml\Scripts\python.exe"
+$venvDir = Join-Path $PSScriptRoot "venv_ml"
+if (-not (Test-Path $venvDir)) { python -m venv $venvDir }
+$venv = Join-Path $venvDir "Scripts\python.exe"
 
 Write-Host "1/3 Installing PyTorch with CUDA..."
 & $venv -m pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
