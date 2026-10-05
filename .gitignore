@@ -1,0 +1,49 @@
+# Virtual environments
+venv/
+venv_fish/
+venv_ml/
+.venv/
+
+# Model weights & downloaded checkpoints (large — fetched by the Model Manager / scripts)
+checkpoints/
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.onnx
+*.gguf
+*.bin
+
+# Personal voice data & recordings — never commit
+dataset_clean/
+Historical_Recordings/
+exports/
+*.wav
+*.m4a
+*.mp3
+*.flac
+
+# Bundled binaries (ffmpeg/ffprobe — install separately)
+src/legends_labs/bin/
+*.exe
+*.dll
+
+# Third-party vendored code
+vendors/
+
+# Caches, temp, logs
+tmp/
+test_cache/
+__pycache__/
+*.py[cod]
+*.log
+error_log*.txt
+.pytest_cache/
+.ruff_cache/
+
+# Local agent tooling
+.agents/
+
+# OS / editor
+.DS_Store
+Thumbs.db

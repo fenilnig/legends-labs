@@ -1,0 +1,73 @@
+[project]
+name = "legends-labs"
+version = "0.1.0"
+description = "Legend's Labs — The DaVinci Resolve of AI Audio. A standalone Windows desktop application for AI-powered audio processing, voice cloning, and expressive speech generation."
+authors = [{ name = "Fenil" }]
+requires-python = ">=3.12"
+license = { text = "MIT" }
+
+dependencies = [
+    # UI Framework
+    "PySide6>=6.7",
+    "pyqtdarktheme>=2.1",
+
+    # AI / ML Core
+    "torch>=2.3",
+    "torchaudio>=2.3",
+
+    # Audio Processing
+    "numpy>=1.26",
+    "scipy>=1.13",
+    "soundfile>=0.12",
+    "librosa>=0.10",
+    "pydub>=0.25",
+
+    # Stem Separation
+    "audio-separator[gpu]>=0.20",
+
+    # Noise Reduction
+    "deepfilternet>=0.5",
+
+    # Transcription
+    "faster-whisper>=1.0",
+
+    # Emotion Recognition
+    "speechbrain>=1.0",
+    "funasr>=1.0",
+
+    # Voice Cloning / TTS
+    "chatterbox-tts>=0.1",
+    "kokoro>=0.9",
+
+    # Local LLM (Script Analysis)
+    "llama-cpp-python>=0.3",
+
+    # Utilities
+    "pydantic>=2.7",
+    "loguru>=0.7",
+    "platformdirs>=4.2",
+    "requests>=2.32",
+    "tqdm>=4.66",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.2",
+    "pytest-qt>=4.4",
+    "ruff>=0.5",
+    "nuitka>=2.3",
+]
+xtts = [
+    "coqui-tts>=0.24",
+]
+
+[project.scripts]
+legends-labs = "legends_labs.main:main"
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+qt_api = "pyside6"
